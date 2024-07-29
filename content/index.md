@@ -1,0 +1,8 @@
+---
+title: k223kim's garden
+publish: true
+tags:
+  - about
+path: /content/
+---
+Hello, I am Kaeun Kim. This is my digital garden.
