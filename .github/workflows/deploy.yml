@@ -42,4 +42,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.TOKEN}}
+          token: ${{ secrets.TOKEN}}
