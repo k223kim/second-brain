@@ -27,7 +27,7 @@ jobs:
       - name: Use GitHub Token
         run: echo "Using the GitHub Token"
         env:
-        token: ${{secrets.TOKEN}}
+          token: ${{secrets.TOKEN}}
       - name: Authenticate with GitHub
         run: |
           git config --global user.email "k223kim@uwaterloo.ca"
