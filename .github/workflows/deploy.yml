@@ -30,6 +30,8 @@ jobs:
         run: |
           git submodule init
           git submodule update
+        with:
+          token: ${{ secrets.TOKEN }}
       - name: Install Dependencies
         run: npm ci
       - name: Authenticate with GitHub
