@@ -31,19 +31,8 @@ jobs:
         run: echo "Using the GitHub Token"
         env:
           token: ${{secrets.TOKEN}}
-      - name: Initialize and update submodules
-        run: |
-          git submodule init
-          git submodule update
       - name: Install Dependencies
         run: npm ci
-      - name: Authenticate with GitHub
-        run: |
-          git config --global user.email "k223kim@uwaterloo.ca"
-          git config --global user.name "Kaeun Kim"
-          git remote set-url origin https://k223kim:${{secrets.TOKEN}}@github.com/k223kim/second-brain-private.git
-          rm content
-          git mv second-brain-private content
       - name: Build Quartz
         run: npx quartz build
       - name: Upload artifact
