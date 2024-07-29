@@ -6,3 +6,5 @@ tags:
 path: /content/
 ---
 Hello, I am Kaeun Kim. This is my digital garden.
+
+I graduated from University of Waterloo.
