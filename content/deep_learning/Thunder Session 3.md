@@ -1,5 +1,5 @@
 ---
-created: <% tp.file.creation_date() %>
+created: 2024-08-20 02:04
 tags:
   - DL
   - Compilers
@@ -80,6 +80,10 @@ thunder.last_traces(jfn)[-1] # transform for execution (also shows the backend)
 - tensors are allocated on the GPU
 - kernels are launched
 ### What does the NVFuser do?
+- Takes a specification of the computation and produces CUDA kernels
+- It will take the `trace` as an input
+- Return CUDA as its intermediate representation
+- Pass that CUDA code to the NVIDIA's CUDA compiler NVRTC to generate a kernel
 ```python
 fdw = lt.python_ctx()["nvFusion0"] # access everything that we need to know to execute
 fdw.last_used # shows the nvFuser program
@@ -89,7 +93,7 @@ fdw.last_used.cuda_code_for([x]) # this returns a CUDA kernel that nvFuser produ
 - Front end is called **Dynamo**
 	- Dynamo produces **FxGraph** which is an intermediate representation
 - FxGraph is handed off to the backend, typically, the **Inductor**
-- Inductor generates code for **Triton**
+- Inductor generates code for **Triton** (i.e. Triton code)
 - Triton will use be used to compile a **PTX kernel** 
 	- PTX is platform independent across various GPUs from NVIDIA
 - PTX kernel is translated to a **GPU kernel** and that will run on the GPU
